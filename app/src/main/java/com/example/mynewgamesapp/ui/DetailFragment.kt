@@ -11,8 +11,11 @@ import com.bumptech.glide.Glide
 import com.example.mynewgamesapp.data.model.games.SingleGameModel
 import com.example.mynewgamesapp.databinding.FragmentDetailBinding
 import com.google.gson.Gson
+import dagger.hilt.android.AndroidEntryPoint
+
 
 class DetailFragment:Fragment() {
+
 
     lateinit var binding:FragmentDetailBinding
 

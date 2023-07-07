@@ -1,5 +1,6 @@
 package com.example.mynewgamesapp.ui.home
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mynewgamesapp.R
 import com.example.mynewgamesapp.data.model.games.SingleGameModel
-import com.example.mynewgamesapp.databinding.ItemGameBinding
 import com.google.gson.Gson
 
 class GameAdapter(val allGames: List<SingleGameModel>, val navController:NavController) : RecyclerView.Adapter<GameAdapter.GameHolder>(){
@@ -34,7 +34,7 @@ class GameAdapter(val allGames: List<SingleGameModel>, val navController:NavCont
         var image:ImageView
         var title:TextView
         init {
-            image = view.findViewById(R.id.iv_game_item)
+            image = view.findViewById(R.id.iv_character)
             title = view.findViewById(R.id.tx_title_game_item)
         }
     }
@@ -47,16 +47,17 @@ class GameAdapter(val allGames: List<SingleGameModel>, val navController:NavCont
 
     override fun getItemCount() = allGames.size
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onBindViewHolder(holder: GameHolder, position: Int) {
 //        holder.updateUI(allGames[position])
         val gameModel = allGames[position]
 
         holder.title.text = gameModel.title
-                        Glide
-                    .with(holder.itemView.context)
-                    .load(gameModel.thumbnail)
-                    .placeholder(R.drawable.ic_launcher_background)
-                    .into(holder.image)
+        Glide
+            .with(holder.itemView.context)
+            .load(gameModel.thumbnail)
+            .placeholder(R.drawable.ic_launcher_background)
+            .into(holder.image)
 
         holder.itemView.setOnClickListener {
             navController.navigate(

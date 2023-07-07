@@ -1,9 +1,10 @@
-package com.example.mynewgamesapp
+package com.example.mynewgamesapp.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mynewgamesapp.MainActivity
 import com.example.mynewgamesapp.databinding.ActivitySplashScreenBinding
 
 class SplashScreenActivity: AppCompatActivity() {

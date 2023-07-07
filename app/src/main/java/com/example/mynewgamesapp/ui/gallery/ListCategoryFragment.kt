@@ -1,4 +1,4 @@
-package com.example.mynewgamesapp
+package com.example.mynewgamesapp.ui.gallery
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.mynewgamesapp.R
 import com.example.mynewgamesapp.databinding.FragmentListCategoryBinding
 
 class ListCategoryFragment : Fragment() {

@@ -32,7 +32,7 @@
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/listCategoryFragment"
-        android:name="com.example.mynewgamesapp.ListCategoryFragment"
+        android:name="com.example.mynewgamesapp.ui.gallery.ListCategoryFragment"
         android:label="fragment_list_category"
         tools:layout="@layout/fragment_list_category" />
     <fragment

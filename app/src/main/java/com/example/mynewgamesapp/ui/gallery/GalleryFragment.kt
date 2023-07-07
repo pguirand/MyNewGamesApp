@@ -10,8 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.mynewgamesapp.ListCategoryFragment
-import com.example.mynewgamesapp.data.remote.ApiCall
+import com.example.mynewgamesapp.data.repository.Repository
 import com.example.mynewgamesapp.databinding.FragmentGalleryBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -24,7 +23,7 @@ import javax.inject.Inject
 class GalleryFragment : Fragment() {
 
     @Inject
-    lateinit var apiCall: ApiCall
+    lateinit var repository: Repository
     private var _binding: FragmentGalleryBinding? = null
 
     // This property is only valid between onCreateView and
@@ -61,7 +60,7 @@ class GalleryFragment : Fragment() {
         var currentCategory = ""
 
         CoroutineScope(Dispatchers.Main).launch {
-            val allGames = apiCall.getAllGames()
+            val allGames = repository.getAllGames()
             val length = allGames.size
 
             allGames.forEach {
