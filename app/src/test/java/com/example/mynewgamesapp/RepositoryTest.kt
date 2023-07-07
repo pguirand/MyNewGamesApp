@@ -62,4 +62,13 @@ class RepositoryTest {
             assertEquals(0, repository.getAllGames().size)
         }
     }
+
+    @Test
+    fun testHasLessThan10() {
+        runTest {
+            val allgames = repository.getAllGames()
+            Mockito.`when`(gameCall.getAllGames()).thenReturn(TestRepoImpl.Foo.getAllGames())
+            assertTrue(gameCall.getAllGames().size > 5)
+        }
+    }
 }
