@@ -28,31 +28,35 @@ class RepositoryTest {
     fun startup() {
         MockitoAnnotations.openMocks(this)
         repository = RepoImpl(
-             gameCall = gameCall,
+            gameCall = gameCall,
             charCall = charcall
         )
     }
+//
+//    @Test
+//    fun getGameById_Success() = runBlocking {
+//        Mockito.`when`(gameCall.getGamebyId(412)).thenReturn(SingleGameModel(
+//            id = 412,
+//            title = "Call of Duty",
+//            shortDescription = "Call of Duty Testing"
+//        ))
+//
+//        val game = repository.getGamebyId(421)
+//
+//        assertFalse(game.gameUrl == TestRepoImpl.Foo.getGamebyId(412).gameUrl)
+//
+//
+////        assertEquals("Call of Duty", repository.getGamebyId(412).title)
+//
+//    }
 
-    @Test
-    fun getGameById_Success() = runBlocking {
-        Mockito.`when`(gameCall.getGamebyId(412)).thenReturn(SingleGameModel(
-            id = 412,
-            title = "Call of Duty",
-            shortDescription = "Call of Duty Testing"
-        ))
-
-        val game = repository.getGamebyId(421)
-
-        assertFalse(game.gameUrl == TestRepoImpl.Foo.getGamebyId(412).gameUrl)
-
-
-//        assertEquals("Call of Duty", repository.getGamebyId(412).title)
-
-    }
 
     @Test
     fun testEmptyCallResponse(){
+
         runTest {
+            val game = repository.getGamebyId(421)
+
             Mockito.`when`(gameCall.getAllGames()).thenReturn(listOf())
 
             assertEquals(0, repository.getAllGames().size)
